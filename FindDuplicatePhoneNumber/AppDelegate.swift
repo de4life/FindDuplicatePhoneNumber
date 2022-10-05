@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Contacts
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -4,20 +4,22 @@
 //
 //  Created by Артур Агеев on 05.10.2022.
 //
-
+import Contacts
+import ContactsUI
 import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet weak var lblHeader: UILabel!
+
+class ViewController: UIViewController, CNContactPickerDelegate {
+   
+    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet var tableView: UITableView!
-    
-    let names = [
-        "Jon",
-        "Dick",
-        "Rich",
-        "Duck",
-        "Smooya"
+    let contactsInfo = [
+        "All contacts",
+        "Duplicate Names",
+        "Duplicate Numbers",
+        "No Name",
+        "No Email",
+        "No Number"
     ]
     
     override func viewDidLoad() {
@@ -29,7 +31,7 @@ class ViewController: UIViewController {
 
 
 }
-
+//MARK:- UITableView methods
 extension ViewController: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,12 +45,12 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return names.count
+        return contactsInfo.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = names[indexPath.row]
+        cell.textLabel?.text = contactsInfo[indexPath.row]
         
         return cell
     }
