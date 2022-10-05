@@ -39,6 +39,9 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "infoVC", sender: self)
+        
+        
         print("tapped me")
     }
 }
