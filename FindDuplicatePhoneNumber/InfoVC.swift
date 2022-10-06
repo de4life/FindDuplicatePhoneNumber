@@ -8,6 +8,8 @@
 import UIKit
 import Contacts
 
+
+//MARK:- Public
 class InfoVC: UIViewController {
    
     var contacts = [FetchedContact]()
