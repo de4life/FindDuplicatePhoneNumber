@@ -13,13 +13,13 @@ class ViewController: UIViewController, CNContactPickerDelegate {
    
     @IBOutlet weak var tableView: UITableView!
     
-    let contactsInfo = [
+    var contactsInfo = [
         "All contacts",
-        "Duplicate Names",
-        "Duplicate Numbers",
-        "No Name",
-        "No Email",
-        "No Number"
+                "Duplicate Names",
+                "Duplicate Numbers",
+                "No Name",
+                "No Email",
+                "No Number"
     ]
     
     override func viewDidLoad() {
@@ -27,6 +27,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
 
 
@@ -39,6 +40,7 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "infoVC", sender: self)
         
         
